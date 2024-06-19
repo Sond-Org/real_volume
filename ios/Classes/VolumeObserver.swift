@@ -70,6 +70,7 @@ public class VolumeListener: NSObject, FlutterStreamHandler {
     @objc func audioSessionObserver(){
         do {
             if !isObserving {
+                try audioSession.setActive(true)
                 audioSession.addObserver(self,
                                          forKeyPath: volumeKey,
                                          options: .new,
